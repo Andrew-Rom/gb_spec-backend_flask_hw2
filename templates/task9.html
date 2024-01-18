@@ -1,0 +1,28 @@
+{% extends 'common.html' %}
+
+{% block title %}
+  Задание № 9
+{% endblock %}
+
+{% block header %}
+  Задание № 9
+{% endblock %}
+
+{% block content %}
+  <p class="text">Создать страницу, на которой будет форма для ввода имени и электронной почты</p>
+  <p class="text">При отправке которой будет создан cookie файл с данными пользователя</p>
+  <p class="text">Также будет произведено перенаправление на страницу приветствия,
+    где будет отображаться имя пользователя.</p>
+  <p class="text">На странице приветствия должна быть кнопка "Выйти"</p>
+  <p class="text">При нажатии на кнопку будет удален cookie файл с данными пользователя и
+    произведено перенаправление на страницу ввода имени и электронной почты.</p>
+
+  <form action="{{ url_for('task9_form') }}" method="post">
+    <input type="text" name="name" placeholder="Введите имя" required>
+    <input type="email" name="email" placeholder="Укажите email" required>
+    <input type="submit" value="Отправить">
+  </form>
+
+
+
+{% endblock %}

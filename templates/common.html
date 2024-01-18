@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <title>
+            {% block title %}
+                Page title
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <nav class="main_menu">
+            <ul class="main_menu__ul">
+                <li>
+                    <a class="main_menu__link" href="/index.html/">Главная</a>
+                </li>
+                <li>
+                    <a class="main_menu__link" href="/task5.html/">Задание 5</a>
+                </li>
+                <li>
+                    <a class="main_menu__link" href="/task6.html/">Задание 6</a>
+                </li>
+                <li>
+                    <a class="main_menu__link" href="/task7.html/">Задание 7</a>
+                </li>
+                <li>
+                    <a class="main_menu__link" href="/task8.html/">Задание 8</a>
+                </li>
+                <li>
+                    <a class="main_menu__link" href="/task9.html/">Задание 9</a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <h1 class="page_title">
+                {% block header %}
+                    Page header
+                {% endblock %}
+            </h1>
+        </header>
+        <content class="content">
+            <div class="content-box">
+                {% block content %}
+                    Page content
+                {% endblock %}
+            </div>
+        </content>
+        <footer class="footer">
+            <div class="footer-box">
+                <p class="copyright_text">© 2024 All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

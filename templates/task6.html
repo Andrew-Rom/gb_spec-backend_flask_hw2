@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+
+{% block title %}
+  Задание № 6
+{% endblock %}
+
+{% block header %}
+  Задание № 6
+{% endblock %}
+
+{% block content %}
+  <p class="text">Создать страницу, на которой будет форма для ввода имени
+    и возраста пользователя и кнопка "Отправить"</p>
+  <p class="text">При нажатии на кнопку будет произведена проверка возраста
+    и переход на страницу с результатом или на страницу с ошибкой в случае
+    некорректного возраста.</p>
+  <form action="{{ url_for('task6') }}" method="post">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <input type="text" name="name" placeholder="Введите имя">
+    <input type="number" name="age" placeholder="Укажите возраст">
+    <input type="submit" value="Отправить">
+  </form>
+
+
+
+{% endblock %}

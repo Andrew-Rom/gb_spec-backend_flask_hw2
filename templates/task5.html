@@ -1,0 +1,48 @@
+{% extends 'common.html' %}
+
+{% block title %}
+  {{ page_name }}
+{% endblock %}
+
+{% block header %}
+  {{ page_name }}
+{% endblock %}
+
+{% block content %}
+  <p class="text">Создать страницу, на которой будет форма для ввода двух
+    чисел и выбор операции (сложение, вычитание, умножение или деление) и кнопка "Вычислить"</p>
+  <p class="text">При нажатии на кнопку будет произведено вычисление результата выбранной
+    операции и переход на страницу с результатом.</p>
+  <form action="{{ url_for('task5_calc') }}" method="post">
+    <input type="number" name="num1" placeholder="Введите первое число">
+    <input type="number" name="num2" placeholder="Введите второе число">
+    <fieldset>
+      <legend>Выбор операции:</legend>
+      <div>
+        <input type="radio" id="add" name="calc" value="add">
+        <label for="add">сложение</label>
+      </div>
+      <div>
+        <input type="radio" id="subtract" name="calc" value="subtract">
+        <label for="subtract">вычитание</label>
+      </div>
+      <div>
+        <input type="radio" id="multiply" name="calc" value="multiply">
+        <label for="multiply">умножение</label>
+      </div>
+      <div>
+        <input type="radio" id="divide" name="calc" value="divide">
+        <label for="divide">деление</label>
+      </div>
+    </fieldset>
+    <input style="btn" type="submit" value="Вычислить">
+
+    {% if calc_result: %}
+      <p class="text">Результат: {{ calc_result }}</p>
+    {% endif %}
+
+  </form>
+
+
+
+{% endblock %}

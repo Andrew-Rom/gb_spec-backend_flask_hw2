@@ -1,0 +1,29 @@
+{% extends 'common.html' %}
+
+{% block title %}
+  Задание № 7
+{% endblock %}
+
+{% block header %}
+  Задание № 7
+{% endblock %}
+
+{% block content %}
+  <p class="text">Создать страницу, на которой будет форма для ввода числа и кнопка "Отправить"</p>
+  <p class="text">При нажатии на кнопку будет произведено перенаправление на страницу с результатом,
+    где будет выведено введенное число и его квадрат.</p>
+  <form action="{{ url_for('task7') }}" method="post">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <input type="number" name="num" placeholder="Введите число">
+    <input type="submit" value="Отправить">
+  </form>
+
+
+
+{% endblock %}
